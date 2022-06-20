@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn server for 106.14.66.191
+
+[Service]
+Restart=on-failure
+User=sss
+WorkingDirectory=/home/sss/sites/106.14.66.191/source
+ExecStart=/home/sss/sites/106.14.66.191/virtualenv/bin/gunicorn \
+--bind unix:/tmp/106.14.66.191.socket superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
